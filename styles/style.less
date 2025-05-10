@@ -1,4 +1,87 @@
-html 
+html
 {
-    background-color: #0c1b33;
-}
+    body
+    {
+        font-family: Arial, sans-serif;
+        padding: 5px;
+        background: white;
+        color: black;
+
+        ul
+        {
+            padding-left: 50px;
+        }
+        
+        a
+        {
+            display: inline-block;
+            margin-top: 30px;
+            color: #003366;
+            text-decoration: none; // li treiem la linia de hipervincle
+        }
+
+        a:hover
+        {
+            text-decoration: underline;
+        }
+
+        form
+        {
+            max-width: 600px;
+            margin: auto;
+        
+            .grup-formulari
+            {
+                margin-bottom: 50px;
+                display: flex;
+                flex-direction: column;
+
+                fieldset
+                {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        
+            .text-ajuda
+            {
+                color: #003366;
+            }
+            
+            input, select, textarea
+            {
+                padding: 10px;
+                border: 1px solid #666;
+                border-radius: 4px;
+            }
+            
+            input:focus, select:focus, textarea:focus
+            {
+                outline: 2px solid #003366;
+            }
+            
+            button
+            {
+                margin-top: 30px;
+                width: 100%;
+                padding: 20px;
+                background-color: #003366;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+            }
+            
+            .missatge-error
+            {
+                color: #c00;
+                font-size: 14px;
+                margin-top: 6px;
+            }
+            
+            .amagat
+            {
+                display: none;
+            }
+        }
+    }
+}      

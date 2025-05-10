@@ -1,24 +1,160 @@
 <!DOCTYPE html>
 <html lang="cat">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../styles/style.css" rel="stylesheet">
-        <title>Prac Usabilitat</title>
-        <link rel="icon" type="image/x-icon" href="../icon/blind.png">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Reserva Hotel Accessible</title>
+        <link rel="stylesheet" href="../styles/style.css" />
+        <link rel="icon" href="../icon/blind.png" /> <!-- Icona totalment necessària jejejeje-->
     </head>
-
-    <header>
-
-    </header>
-
     <body>
-        <form>
+        <main>
+            <form id="formulariHotel" novalidate aria-label="Formulari de reserva">
+                <h1>Reserva d'Hotel</h1>
 
-        </form>
+                <div id="notificacio-errors" class="amagat" aria-live="assertive"></div>
+
+                <div class="grup-formulari">
+                    <label for="nom" id="label-nom">Nom</label>
+                    <input type="text" id="nom" name="nom" required minlength="3" placeholder="Nom"
+                        aria-labelledby="label-nom"
+                        aria-describedby="ajuda-nom error-nom" aria-invalid="false" />
+                    <div>
+                        <span id="ajuda-nom" class="text-ajuda">Introdueix el teu nom</span>
+                        <span id="error-nom" class="missatge-error" role="alert"></span>
+                    </div>
+
+                    <label for="cognoms" id="label-cognoms">Cognoms</label>
+                    <input type="text" id="cognoms" name="cognoms" required minlength="3" placeholder="Cognoms"
+                        aria-labelledby="label-cognoms"
+                        aria-describedby="ajuda-cognoms error-cognoms" aria-invalid="false" />
+                    <div>
+                        <span id="ajuda-cognoms" class="text-ajuda">Introdueix cognoms</span>
+                        <span id="error-cognoms" class="missatge-error" role="alert"></span>
+                    </div>
+
+                    <label for="nif" id="label-nif">NIF</label>
+                    <input type="text" id="nif" name="nif" required pattern="^[0-9]{8}[A-Za-z]$" placeholder="47131376Y"
+                        aria-labelledby="label-nif"
+                        aria-describedby="ajuda-nif error-nif" aria-invalid="false" />
+                    <div>
+                        <span id="ajuda-nif" class="text-ajuda">Insereix el teu NIF</span>
+                        <span id="error-nif" class="missatge-error" role="alert"></span>
+                    </div>
+
+                    <label for="contrasenya" id="label-contrasenya">Contrasenya</label>
+                    <input type="password" id="contrasenya" name="contrasenya" required
+                        pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&]).{8,}$"
+                        aria-labelledby="label-contrasenya"
+                        aria-describedby="ajuda-contrasenya error-contrasenya" aria-invalid="false" />
+                    <div>
+                        <span id="ajuda-contrasenya" class="text-ajuda">Mínim 8 caràcters, amb número i símbol</span>
+                        <span id="error-contrasenya" class="missatge-error" role="alert"></span>
+                    </div>
+
+                    <label for="confirma" id="label-confirma">Confirma contrasenya</label>
+                    <input type="password" id="confirma" name="confirma" required
+                        aria-labelledby="label-confirma"
+                        aria-describedby="ajuda-confirma error-confirma" aria-invalid="false" />
+                    <div>
+                        <span id="ajuda-confirma" class="text-ajuda">Insereix de nou la contrasenya</span>
+                        <span id="error-confirma" class="missatge-error" role="alert"></span>
+                    </div>
+
+                    <label for="data-naixement" id="label-naixement">Data de naixement</label>
+                    <input type="date" id="data-naixement" name="data-naixement" required
+                        aria-labelledby="label-naixement"
+                        aria-describedby="ajuda-data-naixement error-data-naixement" aria-invalid="false" />
+                    <div>
+                        <span id="ajuda-data-naixement" class="text-ajuda">Insereix la teva data de naixement</span>
+                        <span id="error-data-naixement" class="missatge-error" role="alert"></span>
+                    </div>
+                </div>
+
+                <div class="grup-formulari">
+                    <label for="data-entrada" id="label-entrada">Data entrada</label>
+                    <input type="date" id="data-entrada" name="data-entrada" required
+                        aria-labelledby="label-entrada"
+                        aria-describedby="ajuda-data-entrada error-data-entrada" aria-invalid="false" />
+                    <div>
+                        <span id="ajuda-data-entrada" class="text-ajuda">Ha de ser futura</span>
+                        <span id="error-data-entrada" class="missatge-error" role="alert"></span>
+                    </div>
+
+                    <label for="data-sortida" id="label-sortida">Data sortida</label>
+                    <input type="date" id="data-sortida" name="data-sortida" required
+                        aria-labelledby="label-sortida"
+                        aria-describedby="ajuda-data-sortida error-data-sortida" aria-invalid="false" />
+                    <div>
+                        <span id="ajuda-data-entrada" class="text-ajuda">Ha de ser posterior a la d'entrada</span>
+                        <span id="error-data-sortida" class="missatge-error" role="alert"></span>  
+                    </div>    
+                    
+                    <label for="proposit-estansa" id="label-proposit">Propòsit del viatge:</label>
+                    <fieldset id="proposit-estansa"
+                        aria-labelledby="label-proposit" 
+                        aria-describedby="ajuda-proposit error-proposit">
+                        <label><input type="radio" name="proposit" value="oci" required /> Oci</label>
+                        <label><input type="radio" name="proposit" value="feina" /> Feina</label>
+                        <label><input type="radio" name="proposit" value="altres" /> Altres</label>
+                        <div>
+                            <span id="ajuda-proposit" class="text-ajuda">Has d'escollir un proposit</span>
+                            <span id="error-proposit" class="missatge-error" role="alert"></span>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="grup-formulari">
+                    <label for="adults" id="label-adults">Adults</label>
+                    <input type="number" id="adults" name="adults" min="1" value="1" required
+                        aria-labelledby="label-adults"
+                        aria-describedby="ajuda-adults error-adults" aria-invalid="false" />
+                    <div>
+                        <span id="ajuda-adults" class="text-ajuda">Quantitat d'adults</span>
+                        <span id="error-adults" class="missatge-error" role="alert"></span>
+                    </div>
+                    
+
+                    <label for="nens" id="label-nens">Nens</label>
+                    <input type="number" id="nens" name="nens" min="0" value="0"
+                        aria-labelledby="label-nens"
+                        aria-describedby="ajuda-nens error-nens" aria-invalid="false" />
+                    <div>
+                        <span id="ajuda-nens" class="text-ajuda">Quantitat de dimonis</span>
+                        <span id="error-nens" class="missatge-error" role="alert"></span>
+                    </div>
+                    
+                    <div id="edats-nens-container" class="amagat">
+                        <label for="edats-nens" id="label-edats-nens">Edats dels nens</label>
+                        <div id="edats-nens" 
+                            aria-labelledby="label-edats-nens" 
+                            aria-describedby="ajuda-edats-nens error-edats-nens"></div>
+                        <span id="ajuda-edats-nens" class="text-ajuda">Edats dels dimonis</span>
+                        <span id="error-edats-nens" class="missatge-error" role="alert"></span>
+                    </div>
+
+                    <label for="habitacio" id="label-habitacio">Habitació</label>
+                    <select id="habitacio" name="habitacio" required 
+                        aria-labelledby="label-habitacio"
+                        aria-describedby="ajuda-habitacio error-habitacio" aria-invalid="false">
+                        <option value="" disabled selected>Selecciona una opció</option>
+                        <option value="doble">Doble</option>
+                        <option value="triple">Triple</option>
+                        <option value="quadruple">Quadruple</option>
+                        <option value="suite">Suite</option>
+                    </select>
+                    <div>
+                        <span id="ajuda-habitacio" class="text-ajuda">Tipus de l'habitació</span>
+                        <span id="error-habitacio" class="missatge-error" role="alert"></span>
+                    </div>
+
+                    <label for="observacions">Observacions</label>
+                    <textarea id="observacions" name="observacions" placeholder="(Opcional)"></textarea>
+                </div>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </main> 
     </body>
-
-    <footer>
-
-    </footer>
+    <script src="../js/scripts.js"></script>
 </html>

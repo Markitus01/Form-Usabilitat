@@ -1,3 +1,63 @@
-html {
-  background-color: #0c1b33;
+html body {
+  font-family: Arial, sans-serif;
+  padding: 5px;
+  background: white;
+  color: black;
+}
+html body ul {
+  padding-left: 50px;
+}
+html body a {
+  display: inline-block;
+  margin-top: 30px;
+  color: #003366;
+  text-decoration: none;
+}
+html body a:hover {
+  text-decoration: underline;
+}
+html body form {
+  max-width: 600px;
+  margin: auto;
+}
+html body form .grup-formulari {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+html body form .grup-formulari fieldset {
+  display: flex;
+  flex-direction: column;
+}
+html body form .text-ajuda {
+  color: #003366;
+}
+html body form input,
+html body form select,
+html body form textarea {
+  padding: 10px;
+  border: 1px solid #666;
+  border-radius: 4px;
+}
+html body form input:focus,
+html body form select:focus,
+html body form textarea:focus {
+  outline: 2px solid #003366;
+}
+html body form button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 20px;
+  background-color: #003366;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+html body form .missatge-error {
+  color: #c00;
+  font-size: 14px;
+  margin-top: 6px;
+}
+html body form .amagat {
+  display: none;
 }
