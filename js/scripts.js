@@ -27,12 +27,12 @@ document.addEventListener('DOMContentLoaded', () =>
     // validació inline, activem la funció validarCamp cada cop que escriguio
     fields.forEach(field =>
     {
-        if (field.type === 'radio') return; // els radios els tracto apart
+        if (field.type == 'radio') return; // els radios els tracto apart
         field.addEventListener('input', () => validarCamp(field));
         field.addEventListener('blur', () => validarCamp(field));
 
         // validació inline específica de dates
-        if (field.id === 'data-naixement')
+        if (field.id == 'data-naixement')
         {
             field.addEventListener('blur', () =>
             {
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () =>
             });
         }
 
-        if (field.id === 'data-entrada')
+        if (field.id == 'data-entrada')
         {
             field.addEventListener('blur', () =>
             {
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () =>
             });
         }
 
-        if (field.id === 'data-sortida')
+        if (field.id == 'data-sortida')
         {
             field.addEventListener('blur', () =>
             {
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () =>
         // Validació general
         fields.forEach(field =>
         {
-            if (field.type === 'radio') return;
+            if (field.type == 'radio') return;
             let errorSpan = document.getElementById(`error-${field.id}`);
             if (!errorSpan) return;
 
